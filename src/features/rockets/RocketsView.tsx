@@ -18,7 +18,6 @@ const RocketsView = () => {
   if (error) {
     return <div>An error occur</div>
   }
-  console.log(rockets);
   
   return (
     <main className='w-[90%] mx-auto py-4'>
