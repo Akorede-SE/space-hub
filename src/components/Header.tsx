@@ -6,7 +6,7 @@ const Header = () => {
     textDecoration: 'underline',
   }
   return (
-    <header className=" bg-[whitesmoke] p-4 flex justify-between">
+    <header className=" bg-[whitesmoke] p-4 flex justify-between border-b border-slate-300">
       <section className=" flex gap-2 items-center">
         <img src={planet} alt="planet image" />
         <h2 className=" font-Montserrat text-2xl font-[400]">Space Travelers' Hub</h2>
