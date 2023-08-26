@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;1,100;1,300;1,700&family=Roboto+Slab:wght@100;200;300;400;500;900&display=swap');
+
+table, 
+th, 
+td {
+  border: 1px solid rgba(128, 128, 128, 0.398);
+  padding: 5px 15px;
+}
+tbody td {
+  padding: 20px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+.not-active-tbn {
+  background-color: rgb(100, 116,139);
+}
+.active-btn {
+  background-color: rgb(96, 165, 250);
+}
+.join-mission {
+  border: 1px solid rgb(100, 116,139);
+  color: rgb(100, 116,139);
+}
+.leave-mission {
+  border: 1px solid rgb(239, 68, 68);
+  color: rgb(239, 68, 68);
+}
