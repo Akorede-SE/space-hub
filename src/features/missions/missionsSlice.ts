@@ -5,6 +5,7 @@ export type missionProp = {
   description: string,
   mission_id: string,
   mission_name: string,
+  reserved?: boolean;
 }
 export type initialStateProp = {
   missions: missionProp[],
@@ -32,7 +33,15 @@ export const getMissions = createAsyncThunk('missions/getMissions', async () => 
 const missionsSlice = createSlice({
   name: 'missions',
   initialState,
-  reducers:{},
+  reducers:{
+    reserveMission: (state, action) => {
+      const id = action.payload;     
+      const mission = state.missions.find((mission) => mission.mission_id == id);            
+      if (mission) {         
+        mission.reserved = !mission.reserved;
+      }
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getMissions.pending, (state) => {
@@ -53,4 +62,5 @@ const missionsSlice = createSlice({
   }
 })
 
+export const { reserveMission } = missionsSlice.actions;
 export default missionsSlice.reducer;

@@ -25,11 +25,20 @@ export type RocketsProp = {
   description: string,
   id: string,
   flickr_images: string[],
+  reserved?: boolean
 }
 const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
-  reducers: {},
+  reducers: {
+    reserveRocket: (state, action) => {
+      const id  = action.payload;
+      const rocket = state.rockets.find((item: RocketsProp) => item.id === id);
+      if (rocket) {
+        rocket.reserved = !rocket.reserved;
+      }
+    }
+  },
   extraReducers: (builder) => {
     builder
     .addCase(getRockets.pending, (state) => {
@@ -50,5 +59,7 @@ const rocketsSlice = createSlice({
     })
   }
 });
+
+export const { reserveRocket } = rocketsSlice.actions;
 
 export default rocketsSlice.reducer;
