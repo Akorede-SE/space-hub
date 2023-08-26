@@ -32,7 +32,7 @@ const RocketsView = () => {
                     <h3 className="font-semibold text-2xl">{name}</h3>
                     <p className=" text-justify">
                       { reserved && <button 
-                      className="bg-blue-700 
+                      className=" bg-emerald-500
                       text-xs p-1 rounded-md
                       text-white mr-1">
                         Reserved
