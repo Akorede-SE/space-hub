@@ -18,26 +18,15 @@ tbody td {
 tbody tr:nth-child(odd) {
   background-color: whitesmoke;
 }
-.not-active-tbn {
-  background-color: rgb(100, 116,139);
-}
-.active-btn {
+.active--btn {
   background-color: rgb(96, 165, 250);
 }
-.join-mission {
-  border: 1px solid rgb(100, 116,139);
-  color: rgb(100, 116,139);
-}
-.leave-mission {
+.leave--mission {
   border: 1px solid rgb(239, 68, 68);
   color: rgb(239, 68, 68);
 }
 .reserved {
   color: gray;
+  background-color: transparent;
   border: 1px solid gray;
-}
-.not-reserved {
-  background-color: rgb(29, 78, 216);
-  color: #fff;
-
 }

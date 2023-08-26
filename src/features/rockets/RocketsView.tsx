@@ -1,6 +1,5 @@
-import {useEffect} from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/hook';
-import { getRockets, reserveRocket } from './rocketsSlice';
+import { reserveRocket } from './rocketsSlice';
 
 const RocketsView = () => {
   const dispatch = useAppDispatch();
@@ -41,7 +40,7 @@ const RocketsView = () => {
                       {description}
                     </p>
                     <button type="button" className={`
-                    ${reserved ? 'reserved' : 'not-reserved'} py-2 px-3 rounded-md capitalize`} onClick={() => handleReserve(id)}>{reserved ? 'cancel reservation': 'Reserve Rockets'}</button>
+                    ${reserved && 'reserved'} py-2 px-3 rounded-md capitalize bg-blue-600 text-white`} onClick={() => handleReserve(id)}>{reserved ? 'cancel reservation': 'Reserve Rockets'}</button>
                   </section>
           </li>
             )
