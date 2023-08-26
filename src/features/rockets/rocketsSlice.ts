@@ -35,7 +35,7 @@ const rocketsSlice = createSlice({
       const id  = action.payload;
       const rocket = state.rockets.find((item: RocketsProp) => item.id === id);
       if (rocket) {
-        rocket.reserved = true;
+        rocket.reserved = !rocket.reserved;
       }
     }
   },

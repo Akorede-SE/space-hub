@@ -5,9 +5,7 @@ import { getRockets, reserveRocket } from './rocketsSlice';
 const RocketsView = () => {
   const dispatch = useAppDispatch();
   const {rockets, loading, error} = useAppSelector((state) => state.rockets)  
-  useEffect(() => {
-    dispatch(getRockets());
-  }, [])
+ 
 
   const handleReserve = (id: string) => {
     dispatch(reserveRocket(id));
