@@ -32,3 +32,12 @@ tbody tr:nth-child(odd) {
   border: 1px solid rgb(239, 68, 68);
   color: rgb(239, 68, 68);
 }
+.reserved {
+  color: gray;
+  border: 1px solid gray;
+}
+.not-reserved {
+  background-color: rgb(29, 78, 216);
+  color: #fff;
+
+}

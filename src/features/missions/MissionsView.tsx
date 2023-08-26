@@ -14,7 +14,6 @@ const MissionsView = () => {
   if (error) {
     return <div>An errror occur</div>
   }
-  console.log(missions);
   
   return (
     <main className="w-[90%] mx-auto mt-10">
