@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import RocketsView from "./features/rockets/RocketsView";
 import MissionsView from "./features/missions/MissionsView";
 import ProfileView from "./features/profile/ProfileView";
+import { getMissions } from "./features/missions/missionsSlice";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route element={<Layout />}>
