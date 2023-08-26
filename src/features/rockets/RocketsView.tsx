@@ -1,22 +1,41 @@
-import React from 'react'
+import {useEffect} from 'react'
+import { useAppSelector, useAppDispatch } from '../../app/hook';
+import { getRockets } from './rocketsSlice';
 
 const RocketsView = () => {
+  const dispatch = useAppDispatch();
+  const {rockets, loading, error} = useAppSelector((state) => state.rockets)  
+  useEffect(() => {
+    dispatch(getRockets());
+  }, [])
+
+  if (loading) {
+    return <div>Loading ...</div>
+  }
+  if (error) {
+    return <div>An error occur</div>
+  }
   return (
     <main className='w-[90%] mx-auto py-4'>
       <ul className="grid gap-4">
-        <li className="flex flex-col md:flex-row gap-6">
-          <div>
-            <img src="https://imgur.com/DaCfMsj.jpg" 
-            alt=""
-            className="w-[full] object-cover"
-             />
-          </div>
-          <section className="flex flex-col items-start gap-3">
-            <h3 className="font-semibold text-2xl">Falcon 1</h3>
-            <p className=" text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium delectus, vitae quo culpa iusto optio at quod odio dolor neque natus assumenda minus laborum omnis et aut exercitationem debitis, molestiae vero. Numquam  magni rerum? Expedita incidunt obcaecati temporibus consequuntur unde aperiam quaerat Velit, laborum modi.</p>
-            <button type="button" className=" bg-blue-700 text-white py-2 px-3 rounded-md">Reserve Rockets</button>
-          </section>
-        </li>
+        {
+          rockets.map((rocket) => {
+            const {name, id, description, flickr_images: images} = rocket;
+            return (
+                <li key={id} className="flex flex-col md:flex-row gap-6">
+                  <img src={images[0]} 
+                    alt=""
+                    className="w-full md:w-[250px] object-cover"
+                    />
+                  <section className="flex flex-col items-start gap-3">
+                    <h3 className="font-semibold text-2xl">{name}</h3>
+                    <p className=" text-justify">{description}</p>
+                    <button type="button" className=" bg-blue-700 text-white py-2 px-3 rounded-md">Reserve Rockets</button>
+                  </section>
+          </li>
+            )
+          })
+        }
       </ul>
     </main>
   )
